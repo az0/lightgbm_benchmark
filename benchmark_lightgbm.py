@@ -23,7 +23,9 @@ lg_params = {
     'bagging_fraction': 0.5, 
     'bagging_freq' : 1,
     'boosting_type' : 'gbdt',
-    'metric': 'binary_logloss'
+    'metric': 'binary_logloss',
+    'force_row_wise' : 'true', # avoid warning
+    'verbose' : 0 # show error/warnings but not info/debug
 }
 names = ["duration","protocol_type","service","flag","src_bytes",
     "dst_bytes","land","wrong_fragment","urgent","hot","num_failed_logins",

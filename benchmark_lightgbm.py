@@ -98,7 +98,8 @@ def show_sysinfo():
         print(f' cpu hz actual: {cpu["hz_actual_friendly"]}')
     except:
         print(' no cpuinfo, try "pip install py-cpuinfo"')
-
+    print(f' LightGBM version: {lg.__version__}')
+    print(f' pandas version: {pd.__version__}')
 
 def go():
     show_sysinfo()

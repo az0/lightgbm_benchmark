@@ -14,7 +14,7 @@ import pandas as pd
 # constants
 data_url = 'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz'
 #data_url = 'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz'
-num_boost_round = 5000
+num_boost_round = 1000
 lg_params = {
     'objective': 'binary',
     'learning_rate': 0.01,

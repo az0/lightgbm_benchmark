@@ -16,29 +16,31 @@ data_url = 'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz'
 #data_url = 'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz'
 num_boost_round = 5000
 lg_params = {
-    'objective' :'binary',
-    'learning_rate' : 0.01,
-    'num_leaves' : 32,
-    'feature_fraction': 0.5, 
-    'bagging_fraction': 0.5, 
-    'bagging_freq' : 1,
-    'boosting_type' : 'gbdt',
+    'objective': 'binary',
+    'learning_rate': 0.01,
+    'num_leaves': 32,
+    'feature_fraction': 0.5,
+    'bagging_fraction': 0.5,
+    'bagging_freq': 1,
+    'boosting_type': 'gbdt',
     'metric': 'binary_logloss',
-    'force_row_wise' : 'true', # avoid warning
-    'verbose' : 0 # show error/warnings but not info/debug
+    'force_row_wise': 'true',  # avoid warning
+    'verbose': 0  # show error/warnings but not info/debug
 }
-names = ["duration","protocol_type","service","flag","src_bytes",
-    "dst_bytes","land","wrong_fragment","urgent","hot","num_failed_logins",
-    "logged_in","num_compromised","root_shell","su_attempted","num_root",
-    "num_file_creations","num_shells","num_access_files","num_outbound_cmds",
-    "is_host_login","is_guest_login","count","srv_count","serror_rate",
-    "srv_serror_rate","rerror_rate","srv_rerror_rate","same_srv_rate",
-    "diff_srv_rate","srv_diff_host_rate","dst_host_count","dst_host_srv_count",
-    "dst_host_same_srv_rate","dst_host_diff_srv_rate","dst_host_same_src_port_rate",
-    "dst_host_srv_diff_host_rate","dst_host_serror_rate","dst_host_srv_serror_rate",
-    "dst_host_rerror_rate","dst_host_srv_rerror_rate","label"]
+names = ["duration", "protocol_type", "service", "flag", "src_bytes",
+         "dst_bytes", "land", "wrong_fragment", "urgent", "hot", "num_failed_logins",
+         "logged_in", "num_compromised", "root_shell", "su_attempted", "num_root",
+         "num_file_creations", "num_shells", "num_access_files", "num_outbound_cmds",
+         "is_host_login", "is_guest_login", "count", "srv_count", "serror_rate",
+         "srv_serror_rate", "rerror_rate", "srv_rerror_rate", "same_srv_rate",
+         "diff_srv_rate", "srv_diff_host_rate", "dst_host_count", "dst_host_srv_count",
+         "dst_host_same_srv_rate", "dst_host_diff_srv_rate", "dst_host_same_src_port_rate",
+         "dst_host_srv_diff_host_rate", "dst_host_serror_rate", "dst_host_srv_serror_rate",
+         "dst_host_rerror_rate", "dst_host_srv_rerror_rate", "label"]
 
 # read data
+
+
 def get_data():
     """Return a LightGBM data set with the KDD 1999 data"""
     print(f'Reading data from {data_url}')
@@ -61,7 +63,7 @@ def get_data():
     df[cat_columns] = df[cat_columns].apply(lambda x: x.cat.codes)
 
     print('Collapsing values in label column')
-    df['label'] = (df['label']=='normal.').astype(int)
+    df['label'] = (df['label'] == 'normal.').astype(int)
 
     print('Converting to LightGBM data set format')
     X_train = df.drop('label', axis=1)
@@ -75,7 +77,9 @@ def classify(d_train):
     time_start = time.time()
     model = lg.train(lg_params, d_train, num_boost_round=num_boost_round)
     elapsed_seconds = time.time() - time_start
-    print(f' elapsed training time: {elapsed_seconds:.0f} seconds ({elapsed_seconds/60.0:.2f} minutes)')
+    print(
+        f' elapsed training time: {elapsed_seconds:.0f} seconds ({elapsed_seconds/60.0:.2f} minutes)')
+
 
 def show_sysinfo():
     """Show some basic information about the system"""
@@ -95,9 +99,11 @@ def show_sysinfo():
     except:
         print(' no cpuinfo, try "pip install py-cpuinfo"')
 
+
 def go():
     show_sysinfo()
     classify(get_data())
+
 
 if __name__ == '__main__':
     go()

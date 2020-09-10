@@ -1,0 +1,10 @@
+cpu,os,lg_version,lg_notes,row_count,iterations,virtualization,multi_tenant,elapsed_seconds
+AMD Ryzen 5 3600 6-Core Processor,Ubuntu 18.04,3.0.0,installed via pip,"4,898,431",1000,docker,no,242
+AMD Ryzen 5 3600 6-Core Processor,Ubuntu 18.04,3.0.0,-O3 -mtune=native,"4,898,431",1000,docker,no,256
+Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz,Ubuntu 20.04,2.3.1,installed via pip,"4,898,431",1000,none,no,255
+Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz,Windows 10,2.3.1,installed via pip,"4,898,431",1000,none,no,254
+Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz,Windows 10,3.0.0,installed via pip,"4,898,431",1000,none,no,420
+Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz,Ubuntu 18.04,3.0.0,installed via pip,"4,898,431",1000,docker,yes,823
+Intel(R) Core(TM) i9-7980XE CPU @ 2.60GHz,Ubuntu 18.04,3.0.0,-O3 -mtune=native,"4,898,431",1000,docker,yes,1030
+Intel(R) Xeon(R) CPU E5-2420 v2 @ 2.20GHz,Ubuntu 18.04,3.0.0,-O3 -mtune=native,"4,898,431",1000,docker,no,531
+Intel(R) Xeon(R) CPU E5-2420 v2 @ 2.20GHz,Ubuntu 18.04,3.0.0,installed via pip,"4,898,431",1000,docker,no,544
